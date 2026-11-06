@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PARSHANT GRAPHICS | 3D Sign Studio & Architectural Signage</title>
+    <!-- Refined Modern Sans-Serif & Display Typography for 3D Studio -->
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cinzel:wght@600;700&family=Dancing+Script:wght@700&family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800&family=Orbitron:wght@600;700&family=Playfair+Display:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6.5.1 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Main Navigation Header (With logo.png on Top Left & ScrollSpy Active Indicator) -->
+    <header class="navbar" id="mainNavbar">
+        <div class="container nav-container">
+            <a href="#home" class="logo">
+                <span class="logo-icon logo-img-box" title="Click to view logo full screen">
+                    <img src="images/logo.png" alt="Parshant Graphics Logo" class="nav-logo-img clickable-img" data-title="PARSHANT GRAPHICS — Official Logo" data-caption="Signage • Print • Branding | 3D Sign Studio, Jind" onerror="handleImageFallback(this, 'logo.png')">
+                </span>
+                <div class="logo-text">
+                    <span class="brand-main">PARSHANT GRAPHICS</span>
+                    <span class="brand-sub">3D SIGN STUDIO</span>
+                </div>
+            </a>
+
+            <nav class="nav-links" id="navLinks">
+                <a href="#home" class="nav-item active" data-section="home">Home</a>
+                <a href="#services" class="nav-item" data-section="services">Services</a>
+                <a href="#customizer" class="nav-item" data-section="customizer">3D Sign Studio</a>
+                <a href="#portfolio" class="nav-item" data-section="portfolio">Portfolio</a>
+                <a href="#quote" class="nav-item" data-section="quote">Get Quote</a>
+                <a href="#contact" class="nav-item" data-section="contact">Contact</a>
+            </nav>
+
+            <div class="nav-actions">
+                <button type="button" class="icon-btn" id="themeToggleBtn" title="Switch Charcoal / Warm White Theme" aria-label="Toggle Theme">
+                    <i class="fa-solid fa-sun"></i>
+                </button>
+                <a href="#quote" class="btn-nav-cta">
+                    <i class="fa-brands fa-whatsapp"></i> <span>Get Quote</span>
+                </a>
+                <button type="button" class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section (With images/main.png Shop Showcase Image) -->
+    <section id="home" class="hero">
+        <div class="container hero-grid">
+            <div class="hero-content reveal">
+                <div class="status-pill">
+                    <span class="status-dot"></span> 3D SIGN STUDIO • JIND, HARYANA
+                </div>
+                <h1>Elevate Your Storefront With <span class="gold-text">Bespoke 3D Signage</span> &amp; Brand Identity</h1>
+                <p>We manufacture precision-crafted <strong>3D Champagne Gold &amp; Stainless Steel Letters, Warm White Halo-Lit Acrylic Signage, Backlit Storefront Fascias,</strong> and High-Definition Commercial Prints engineered for lasting architectural appeal.</p>
+
+                <div class="hero-btns">
+                    <a href="#customizer" class="btn-primary">
+                        <i class="fa-solid fa-sliders"></i> Try 3D Sign Studio
+                    </a>
+                    <a href="#quote" class="btn-secondary">
+                        <i class="fa-brands fa-whatsapp"></i> Request Quotation
+                    </a>
+                </div>
+
+                <div class="hero-stats">
+                    <div class="stat-box">
+                        <h3>500+</h3>
+                        <p>Signboards Installed</p>
+                    </div>
+                    <div class="stat-box">
+                        <h3>100%</h3>
+                        <p>Weatherproof 3D LED</p>
+                    </div>
+                    <div class="stat-box">
+                        <h3>Fast</h3>
+                        <p>Delivery &amp; Fitting</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Shop Showcase Image Box (images/main.png) -->
+            <div class="hero-visual reveal">
+                <div class="showcase-card">
+                    <div class="showcase-top">
+                        <span class="board-tag">3D SIGN STUDIO PREVIEW</span>
+                        <div class="preset-pills">
+                            <button type="button" class="preset-pill active" data-preset="gold">Champagne Gold</button>
+                            <button type="button" class="preset-pill" data-preset="warmwhite">Warm White</button>
+                            <button type="button" class="preset-pill" data-preset="bronze">Bronze</button>
+                        </div>
+                    </div>
+
+                    <div class="hero-photo-frame" onclick="openImageLightbox(document.getElementById('heroMainImg'))">
+                        <img src="images/main.png" id="heroMainImg" class="clickable-img" alt="Parshant Graphics 3D Light Board Factory Main Shop Showcase" data-title="PARSHANT GRAPHICS — 3D Light Board Factory" data-caption="Our Main Signage Studio & Storefront Elevation • Jind, Haryana" onerror="handleImageFallback(this, 'main.png')">
+                        <span class="zoom-badge"><i class="fa-solid fa-magnifying-glass-plus"></i> Click to View</span>
+                        <div class="hero-photo-overlay">
+                            <h2 class="hero-sign-title" id="heroSignTitle">PARSHANT GRAPHICS</h2>
+                            <span class="hero-sign-subtitle" id="heroSignSub">3D LIGHT BOARD FACTORY • CHAMPAGNE GOLD</span>
+                        </div>
+                    </div>
+
+                    <div class="board-features">
+                        <span><i class="fa-solid fa-shield-halved"></i> 304-Grade Steel &amp; Cast Acrylic</span>
+                        <span><i class="fa-solid fa-lightbulb"></i> Warm White Halo LED</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section (Strictly Board Categories — Zero Prices) -->
+    <section id="services" class="section section-alt">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="eyebrow-badge"><i class="fa-solid fa-layer-group"></i> OUR BOARD CATEGORIES</span>
+                <h2>Custom 3D Signage &amp; <span class="gold-text">Printing Categories</span> We Manufacture</h2>
+                <p>Explore our complete range of custom 3D signboards, metallic letters, backlit fascias, and commercial printing solutions crafted for every business category.</p>
+            </div>
+
+            <div class="services-grid">
+                <!-- Category 1 -->
+                <div class="service-card reveal">
+                    <div class="service-top">
+                        <div class="service-icon"><i class="fa-solid fa-cubes"></i></div>
+                        <span class="service-category-tag">3D Acrylic Series</span>
+                    </div>
+                    <h3>3D Acrylic &amp; Champagne Gold Signage</h3>
+                    <p>Laser-cut cast acrylic 3D box letters mounted on matte charcoal ACP panels with high-lumen warm white and gold LED illumination.</p>
+                    <ul class="service-points">
+                        <li><i class="fa-solid fa-check"></i> UV-stabilized imported cast acrylic face</li>
+                        <li><i class="fa-solid fa-check"></i> Heavy-duty 4mm exterior ACP cladding base</li>
+                        <li><i class="fa-solid fa-check"></i> Weatherproof high-brightness LED modules</li>
+                    </ul>
+                    <button type="button" class="service-btn" onclick="selectService('3D Acrylic & Champagne Gold Signage', '8 x 3 Feet')">
+                        Inquire About This Category <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <!-- Category 2 -->
+                <div class="service-card featured reveal">
+                    <div class="service-top">
+                        <div class="service-icon"><i class="fa-solid fa-medal"></i></div>
+                        <span class="service-category-tag">Luxury Metal Series</span>
+                    </div>
+                    <h3>Brushed Gold &amp; Steel 3D Halo Letters</h3>
+                    <p>Rust-proof 304-grade stainless steel, champagne gold, and titanium 3D channel letters engineered with soft warm-white architectural halo glow.</p>
+                    <ul class="service-points">
+                        <li><i class="fa-solid fa-check"></i> Champagne Gold, Brushed Steel &amp; Bronze finishes</li>
+                        <li><i class="fa-solid fa-check"></i> Warm 3000K architectural halo backlighting</li>
+                        <li><i class="fa-solid fa-check"></i> Ideal for showrooms, jewellers &amp; corporate offices</li>
+                    </ul>
+                    <button type="button" class="service-btn" onclick="selectService('Brushed Gold & Steel 3D Halo Letters', '10 x 3 Feet')">
+                        Inquire About This Category <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <!-- Category 3 -->
+                <div class="service-card reveal">
+                    <div class="service-top">
+                        <div class="service-icon"><i class="fa-solid fa-store"></i></div>
+                        <span class="service-category-tag">Outdoor Fascia Series</span>
+                    </div>
+                    <h3>Backlit Storefront Glow Sign Fascia</h3>
+                    <p>Seamless backlit storefront fascia boards constructed with heavy-gauge MS framing, aluminum extrusion profiles, and translucent UV media.</p>
+                    <ul class="service-points">
+                        <li><i class="fa-solid fa-check"></i> Shadow-free internal LED matrix illumination</li>
+                        <li><i class="fa-solid fa-check"></i> Heavy-duty weatherproof structural frame</li>
+                        <li><i class="fa-solid fa-check"></i> Custom typography &amp; storefront layout design</li>
+                    </ul>
+                    <button type="button" class="service-btn" onclick="selectService('Backlit Storefront Glow Sign Fascia', '10 x 4 Feet')">
+                        Inquire About This Category <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <!-- Category 4 -->
+                <div class="service-card reveal">
+                    <div class="service-top">
+                        <div class="service-icon"><i class="fa-solid fa-lightbulb"></i></div>
+                        <span class="service-category-tag">Interior &amp; Cafe Series</span>
+                    </div>
+                    <h3>Architectural LED Contour &amp; Script Signs</h3>
+                    <p>Bespoke warm-white and gold silicone LED script signage precision-mounted on routed clear or matte charcoal acrylic backplates.</p>
+                    <ul class="service-points">
+                        <li><i class="fa-solid fa-check"></i> Safe 12V low-voltage shatterproof LED flex</li>
+                        <li><i class="fa-solid fa-check"></i> Complete with dimmer &amp; wall-mount hardware</li>
+                        <li><i class="fa-solid fa-check"></i> Tailored for cafes, studios, salons &amp; lounges</li>
+                    </ul>
+                    <button type="button" class="service-btn" onclick="selectService('Architectural LED Contour & Script Signs', '4 x 2 Feet')">
+                        Inquire About This Category <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <!-- Category 5 -->
+                <div class="service-card reveal">
+                    <div class="service-top">
+                        <div class="service-icon"><i class="fa-solid fa-scroll"></i></div>
+                        <span class="service-category-tag">Commercial Print Series</span>
+                    </div>
+                    <h3>HD Star Flex, Vinyl &amp; Sunboard Printing</h3>
+                    <p>1440 DPI eco-solvent and UV commercial printing on heavy Star Flex, 3M vinyl, frosted glass film, one-way vision, and 5mm foam sunboards.</p>
+                    <ul class="service-points">
+                        <li><i class="fa-solid fa-check"></i> Weather-resistant outdoor UV ink technology</li>
+                        <li><i class="fa-solid fa-check"></i> Matte/gloss lamination &amp; glass branding</li>
+                        <li><i class="fa-solid fa-check"></i> Same-day express printing capability</li>
+                    </ul>
+                    <button type="button" class="service-btn" onclick="selectService('HD Star Flex, Vinyl & Sunboard Printing', '8 x 4 Feet')">
+                        Inquire About This Category <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <!-- Category 6 -->
+                <div class="service-card reveal">
+                    <div class="service-top">
+                        <div class="service-icon"><i class="fa-solid fa-id-card"></i></div>
+                        <span class="service-category-tag">Brand Identity Series</span>
+                    </div>
+                    <h3>Visiting Cards &amp; Complete Corporate Branding</h3>
+                    <p>400 GSM velvet-touch Spot UV &amp; gold-foiled business cards, corporate brochures, bill books, etched metal nameplates, and reception logos.</p>
+                    <ul class="service-points">
+                        <li><i class="fa-solid fa-check"></i> Matte velvet lamination with raised Spot UV</li>
+                        <li><i class="fa-solid fa-check"></i> Laser-engraved steel &amp; brass office nameplates</li>
+                        <li><i class="fa-solid fa-check"></i> Complete brand identity &amp; print collateral</li>
+                    </ul>
+                    <button type="button" class="service-btn" onclick="selectService('Visiting Cards & Complete Corporate Branding', 'Custom Package')">
+                        Inquire About This Category <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Upgraded Interactive 3D Sign Studio Configurator -->
+    <section id="customizer" class="section">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="eyebrow-badge"><i class="fa-solid fa-compass-drafting"></i> 3D SIGN STUDIO PRO</span>
+                <h2>Design &amp; Test Your <span class="gold-text">Custom 3D Signboard</span> Live</h2>
+                <p>Customize your shop name, 3D emblem, font style, LED illumination mode, metallic colour, ACP cladding base, and frame style in real time.</p>
+            </div>
+
+            <div class="customizer-wrapper reveal">
+                <!-- Upgraded Controls Panel -->
+                <div class="customizer-controls">
+                    <div class="dimensions-row">
+                        <div class="input-group">
+                            <label for="shopNameInput"><span>1. Business / Storefront Name</span> <small>Max 26 chars</small></label>
+                            <input type="text" id="shopNameInput" placeholder="e.g., PRESTIGE EMPORIUM" value="PRESTIGE EMPORIUM" maxlength="26">
+                        </div>
+
+                        <div class="input-group">
+                            <label for="shopSubInput"><span>2. Tagline / Subtitle</span></label>
+                            <input type="text" id="shopSubInput" placeholder="e.g., Bespoke Retail | Ph: +91 79883 00872" value="Bespoke Retail & Luxury Goods | Ph: +91 79883 00872" maxlength="55">
+                        </div>
+                    </div>
+
+                    <div class="dimensions-row">
+                        <div class="input-group">
+                            <label for="fontSelect"><span>3. 3D Typography Style (8 Fonts)</span></label>
+                            <select id="fontSelect">
+                                <option value="'Plus Jakarta Sans', sans-serif">Modern Architectural Sans</option>
+                                <option value="'Montserrat', sans-serif">Bold Geometric Showroom</option>
+                                <option value="'Cinzel', serif">Royal Heritage Luxury Serif</option>
+                                <option value="'Bebas Neue', sans-serif">Tall Highway Block Display</option>
+                                <option value="'Orbitron', sans-serif">Futuristic Tech &amp; Auto</option>
+                                <option value="'Playfair Display', serif">Boutique &amp; Jewellery Editorial</option>
+                                <option value="'Dancing Script', cursive">Cafe &amp; Studio Neon Script</option>
+                                <option value="'Inter', sans-serif">Clean Corporate Executive</option>
+                            </select>
+                        </div>
+
+                        <div class="input-group">
+                            <label><span>4. Board Size (Feet)</span> <small id="sizePresetHint">W × H</small></label>
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+                                <input type="number" id="boardWidthInput" min="2" max="50" value="8" title="Width in Feet" placeholder="Width">
+                                <input type="number" id="boardHeightInput" min="1" max="20" value="3" title="Height in Feet" placeholder="Height">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Dimension Presets -->
+                    <div class="input-group">
+                        <label><span>Quick Size Presets</span> <small>Click to apply</small></label>
+                        <div class="studio-chip-row">
+                            <button type="button" class="size-preset-btn active" data-w="8" data-h="3">8 × 3 ft</button>
+                            <button type="button" class="size-preset-btn" data-w="10" data-h="3">10 × 3 ft</button>
+                            <button type="button" class="size-preset-btn" data-w="12" data-h="4">12 × 4 ft</button>
+                            <button type="button" class="size-preset-btn" data-w="16" data-h="4">16 × 4 ft</button>
+                            <button type="button" class="size-preset-btn" data-w="22" data-h="4.5">22 × 4.5 ft</button>
+                        </div>
+                    </div>
+
+                    <!-- 10 Illumination & Metallic Colours -->
+                    <div class="input-group">
+                        <label><span>5. Illumination &amp; Metallic Tone (10 Colours)</span> <small id="selectedColorLabel">Champagne Gold Halo</small></label>
+                        <div class="color-options">
+                            <button type="button" class="color-btn active" data-color="#e0c283" style="background: linear-gradient(135deg, #f3dfb6, #c5a059);" title="Champagne Gold Halo"></button>
+                            <button type="button" class="color-btn" data-color="#faf8f5" style="background: linear-gradient(135deg, #ffffff, #dcd7cc);" title="Warm White Backlit"></button>
+                            <button type="button" class="color-btn" data-color="#e6b88a" style="background: linear-gradient(135deg, #f5d4b3, #b87b43);" title="Architectural Bronze"></button>
+                            <button type="button" class="color-btn" data-color="#cbd5e1" style="background: linear-gradient(135deg, #f8fafc, #94a3b8);" title="Brushed Titanium"></button>
+                            <button type="button" class="color-btn" data-color="#fda4af" style="background: linear-gradient(135deg, #fecdd3, #e11d48);" title="Rose Gold Mirror"></button>
+                            <button type="button" class="color-btn" data-color="#ff4d4d" style="background: linear-gradient(135deg, #ff8080, #dc2626);" title="Crimson Red 3D LED"></button>
+                            <button type="button" class="color-btn" data-color="#38bdf8" style="background: linear-gradient(135deg, #bae6fd, #0284c7);" title="Royal Electric Blue LED"></button>
+                            <button type="button" class="color-btn" data-color="#34d399" style="background: linear-gradient(135deg, #a7f3d0, #059669);" title="Emerald Green Neon"></button>
+                            <button type="button" class="color-btn" data-color="#fbbf24" style="background: linear-gradient(135deg, #fde68a, #d97706);" title="Amber Sunset Gold LED"></button>
+                            <button type="button" class="color-btn" data-color="#c084fc" style="background: linear-gradient(135deg, #e9d5ff, #9333ea);" title="Royal Purple Glow"></button>
+                        </div>
+                    </div>
+
+                    <!-- 8 Base ACP Cladding Finishes -->
+                    <div class="input-group">
+                        <label><span>6. Base ACP Cladding Finish (8 Textures)</span></label>
+                        <div class="bg-options">
+                            <button type="button" class="bg-btn active" data-bg="charcoal">Matte Charcoal ACP</button>
+                            <button type="button" class="bg-btn" data-bg="bronze">Dark Bronze ACP</button>
+                            <button type="button" class="bg-btn" data-bg="walnut">Walnut Timber ACP</button>
+                            <button type="button" class="bg-btn" data-bg="slate">Obsidian Slate ACP</button>
+                            <button type="button" class="bg-btn" data-bg="marble">Black Gold Marble</button>
+                            <button type="button" class="bg-btn" data-bg="navy">Royal Navy ACP</button>
+                            <button type="button" class="bg-btn" data-bg="silver">Brushed Silver ACP</button>
+                            <button type="button" class="bg-btn" data-bg="emerald">Deep Emerald ACP</button>
+                        </div>
+                    </div>
+
+                    <!-- 3D Lighting Mode & Border Style -->
+                    <div class="dimensions-row">
+                        <div class="input-group">
+                            <label><span>7. 3D Lighting Effect</span></label>
+                            <div class="studio-chip-grid">
+                                <button type="button" class="lighting-btn active" data-lighting="halo">3D Halo Lit</button>
+                                <button type="button" class="lighting-btn" data-lighting="frontlit">Front-Lit LED</button>
+                                <button type="button" class="lighting-btn" data-lighting="duallit">Dual Lit Pro</button>
+                                <button type="button" class="lighting-btn" data-lighting="neon">Neon Outline</button>
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label><span>8. Board Frame Style</span></label>
+                            <div class="studio-chip-grid">
+                                <button type="button" class="border-btn active" data-border="classic">Gold Frame</button>
+                                <button type="button" class="border-btn" data-border="double">Double Royal</button>
+                                <button type="button" class="border-btn" data-border="ledtube">LED Tube</button>
+                                <button type="button" class="border-btn" data-border="none">Frameless</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Brand Emblem / Icon & Glow Intensity -->
+                    <div class="dimensions-row">
+                        <div class="input-group">
+                            <label><span>9. Add 3D Brand Emblem</span></label>
+                            <div class="studio-chip-row">
+                                <button type="button" class="emblem-btn active" data-emblem="" title="No Icon">None</button>
+                                <button type="button" class="emblem-btn" data-emblem="fa-solid fa-crown" title="Luxury / Jewellers"><i class="fa-solid fa-crown"></i></button>
+                                <button type="button" class="emblem-btn" data-emblem="fa-solid fa-gem" title="Diamond / Boutique"><i class="fa-solid fa-gem"></i></button>
+                                <button type="button" class="emblem-btn" data-emblem="fa-solid fa-store" title="Retail Showroom"><i class="fa-solid fa-store"></i></button>
+                                <button type="button" class="emblem-btn" data-emblem="fa-solid fa-utensils" title="Restaurant / Hotel"><i class="fa-solid fa-utensils"></i></button>
+                                <button type="button" class="emblem-btn" data-emblem="fa-solid fa-graduation-cap" title="School / Institute"><i class="fa-solid fa-graduation-cap"></i></button>
+                                <button type="button" class="emblem-btn" data-emblem="fa-solid fa-star" title="Star Brand"><i class="fa-solid fa-star"></i></button>
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="glowRangeInput"><span>10. LED Glow Brightness</span> <small id="glowPercentText">100%</small></label>
+                            <input type="range" id="glowRangeInput" min="35" max="140" value="100" class="glow-slider">
+                        </div>
+                    </div>
+
+                    <div class="studio-action-row">
+                        <button type="button" class="btn-secondary" onclick="resetSignStudio()" title="Reset to Default">
+                            <i class="fa-solid fa-rotate-left"></i> Reset
+                        </button>
+                        <button type="button" class="btn-primary full-width" onclick="sendCustomBoardToQuote()">
+                            <i class="fa-brands fa-whatsapp"></i> Request Quote for This 3D Board
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Live 3D Sign Studio Preview -->
+                <div class="customizer-preview-container">
+                    <div class="preview-header-bar">
+                        <span class="nowrap"><i class="fa-solid fa-eye" style="color: var(--gold-light); margin-right: 6px;"></i> 3D SIGN STUDIO LIVE PREVIEW</span>
+                        <div style="display: flex; gap: 6px; align-items: center;">
+                            <button type="button" id="toggleSubBarBtn" class="mode-btn" title="Show / Hide Subtitle Bar">
+                                <i class="fa-solid fa-grip-lines"></i> Tagline On
+                            </button>
+                            <button type="button" id="toggleDayNight" class="mode-btn">
+                                <i class="fa-solid fa-moon"></i> Night Illumination
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="signboard-stage" id="signboardStage">
+                        <!-- Top Spotlights Simulation -->
+                        <div class="stage-spotlights">
+                            <span class="spotlight-beam"></span>
+                            <span class="spotlight-beam"></span>
+                            <span class="spotlight-beam"></span>
+                        </div>
+
+                        <div class="acp-board" id="acpBoard">
+                            <div class="screw tl"></div>
+                            <div class="screw tr"></div>
+                            <div class="screw bl"></div>
+                            <div class="screw br"></div>
+
+                            <div class="board-inner-border" id="boardBorder">
+                                <div id="previewEmblemWrap" class="preview-emblem-wrap" style="display: none;">
+                                    <i id="previewEmblemIcon" class=""></i>
+                                </div>
+                                <h2 id="previewShopName" class="preview-3d-text">PRESTIGE EMPORIUM</h2>
+                                <div class="preview-sub-bar" id="previewSubBar">
+                                    <span id="previewShopSub">Bespoke Retail &amp; Luxury Goods | Ph: +91 79883 00872</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="estimate-strip">
+                            <div>
+                                <small>Configured Dimensions &amp; Mode</small>
+                                <strong id="calcAreaText">8 ft × 3 ft (24 sq.ft.) • 3D Halo Lit</strong>
+                            </div>
+                            <div style="text-align: right;">
+                                <small>Selected Finish &amp; Base</small>
+                                <strong id="calcFinishText">Champagne Gold Halo • Matte Charcoal ACP</strong>
+                            </div>
+                        </div>
+
+                        <div class="studio-live-badges">
+                            <span><i class="fa-solid fa-bolt"></i> IP67 Waterproof LEDs</span>
+                            <span><i class="fa-solid fa-shield-halved"></i> 4mm Exterior ACP</span>
+                            <span><i class="fa-solid fa-screwdriver-wrench"></i> Turnkey Installation</span>
+                        </div>
+
+                        <p class="preview-hint">*Digital elevation preview. Actual fabricated 3D signage includes metallic returns, weatherproof LEDs, and turnkey fitting.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section (With images/service1.png, images/service2.png, images/service3.png) -->
+    <section id="portfolio" class="section section-alt">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="eyebrow-badge"><i class="fa-solid fa-camera"></i> OUR INSTALLED PROJECTS</span>
+                <h2>Featured <span class="gold-text">3D Signage</span> Installations</h2>
+                <p>A showcase of our installed 3D signboards, backlit storefront fascias, commercial showrooms, and institutional gate signage executed by Parshant Graphics.</p>
+            </div>
+
+            <div class="portfolio-filters reveal">
+                <button type="button" class="filter-btn active" data-filter="all">All Projects</button>
+                <button type="button" class="filter-btn" data-filter="metal">Champagne Gold &amp; Steel</button>
+                <button type="button" class="filter-btn" data-filter="acrylic">3D Acrylic &amp; Showroom</button>
+                <button type="button" class="filter-btn" data-filter="backlit">Outdoor &amp; Gate Fascia</button>
+            </div>
+
+            <div class="portfolio-grid">
+                <!-- Installed Board Box 1: service1.png -> BRAND HUT -->
+                <div class="portfolio-card reveal" data-category="acrylic">
+                    <div class="portfolio-photo-wrap" onclick="openImageLightbox(document.getElementById('serviceImg1'))">
+                        <img src="images/service1.png" id="serviceImg1" class="clickable-img" alt="BRAND HUT - 3D Acrylic LED Storefront Signage" data-title="BRAND HUT" data-caption="3D Red & Warm White Acrylic LED Channel Letters • Retail Fashion & Footwear Showroom" onerror="handleImageFallback(this, 'service1.png')">
+                        <span class="work-badge">3D Acrylic LED Showroom</span>
+                        <span class="zoom-badge"><i class="fa-solid fa-magnifying-glass-plus"></i> Click to View</span>
+                        <div class="portfolio-photo-overlay">
+                            <div class="demo-sign">BRAND HUT</div>
+                            <small>Red &amp; Warm White 3D Acrylic LED Letters + Matte Black ACP</small>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <h4>BRAND HUT — 3D LED Storefront Signage</h4>
+                        <p>Custom laser-cut red and warm-white 3D acrylic channel letters with an illuminated rooftop emblem mounted on a matte charcoal ACP storefront fascia.</p>
+                        <div class="portfolio-actions">
+                            <button type="button" class="link-btn" onclick="openProjectModal('BRAND HUT — 3D LED Storefront Signage', '3D Acrylic & Champagne Gold Signage', 'High-lumen red and warm-white 3D cast acrylic LED letters with custom house-emblem neon accent mounted on weatherproof 4mm Matte Black ACP cladding.', '12 x 3.5 Feet', '3 Years Comprehensive Warranty', 'serviceImg1')">
+                                <i class="fa-solid fa-circle-info"></i> View Details
+                            </button>
+                            <button type="button" class="link-btn" onclick="selectService('3D Acrylic & Champagne Gold Signage', '12 x 3.5 Feet')">
+                                Order Similar <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Installed Board Box 2: service2.png -> SHER - E - PUNJAB -->
+                <div class="portfolio-card reveal" data-category="metal">
+                    <div class="portfolio-photo-wrap" onclick="openImageLightbox(document.getElementById('serviceImg2'))">
+                        <img src="images/service2.png" id="serviceImg2" class="clickable-img" alt="SHER - E - PUNJAB - 3D Warm White LED Restaurant Signage" data-title="SHER - E - PUNJAB" data-caption="High-Brightness 3D Warm White LED Channel Letters & Architectural Facade Cladding" onerror="handleImageFallback(this, 'service2.png')">
+                        <span class="work-badge">3D Warm White Highway LED</span>
+                        <span class="zoom-badge"><i class="fa-solid fa-magnifying-glass-plus"></i> Click to View</span>
+                        <div class="portfolio-photo-overlay">
+                            <div class="demo-sign">SHER - E - PUNJAB</div>
+                            <small>Warm Gold 3D Illuminated Channel Letters + Facade Cladding</small>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <h4>SHER - E - PUNJAB — 3D Outdoor LED Fascia</h4>
+                        <p>Large-scale weatherproof warm-white and gold 3D illuminated letters with custom backlit emblem engineered for long-distance highway and night visibility.</p>
+                        <div class="portfolio-actions">
+                            <button type="button" class="link-btn" onclick="openProjectModal('SHER - E - PUNJAB — 3D Outdoor LED Fascia', 'Brushed Gold & Steel 3D Halo Letters', 'Heavy-duty outdoor 3D warm-white & champagne gold illuminated channel letters with metallic returns, top floodlights, and full elevation cladding.', '20 x 4 Feet', '5 Years Outdoor LED Warranty', 'serviceImg2')">
+                                <i class="fa-solid fa-circle-info"></i> View Details
+                            </button>
+                            <button type="button" class="link-btn" onclick="selectService('Brushed Gold & Steel 3D Halo Letters', '20 x 4 Feet')">
+                                Order Similar <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Installed Board Box 3: service3.png -> AAROHI MODEL SR. SEC. SCHOOL -->
+                <div class="portfolio-card reveal" data-category="backlit">
+                    <div class="portfolio-photo-wrap" onclick="openImageLightbox(document.getElementById('serviceImg3'))">
+                        <img src="images/service3.png" id="serviceImg3" class="clickable-img" alt="AAROHI MODEL SR. SEC. SCHOOL - Kheri Lohchab (Hansi) Gate Signage" data-title="AAROHI MODEL SR. SEC. SCHOOL" data-caption="Kheri Lohchab (Hansi) • Architectural Gate ACP Cladding & Gold 3D LED Fascia" onerror="handleImageFallback(this, 'service3.png')">
+                        <span class="work-badge">Architectural Gate ACP &amp; Gold</span>
+                        <span class="zoom-badge"><i class="fa-solid fa-magnifying-glass-plus"></i> Click to View</span>
+                        <div class="portfolio-photo-overlay">
+                            <div class="demo-sign">AAROHI MODEL SR. SEC. SCHOOL</div>
+                            <small>Kheri Lohchab (Hansi) • Gold 3D Gate &amp; ACP Pillar Fascia</small>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <h4>AAROHI MODEL SR. SEC. SCHOOL — Gate Signage</h4>
+                        <p>Complete institutional entrance gate ACP pillar cladding and matte black fascia with champagne gold 3D lettering, warm perimeter LED strip, and downlights at Kheri Lohchab (Hansi).</p>
+                        <div class="portfolio-actions">
+                            <button type="button" class="link-btn" onclick="openProjectModal('AAROHI MODEL SR. SEC. SCHOOL — Gate Signage', 'Backlit Storefront Glow Sign Fascia', 'Full architectural entrance gate ACP cladding with Champagne Gold 3D letters, warm-white LED border tubing, and recessed spot downlights at Kheri Lohchab, Hansi.', '22 x 4.5 Feet', '5 Years Structural & LED Warranty', 'serviceImg3')">
+                                <i class="fa-solid fa-circle-info"></i> View Details
+                            </button>
+                            <button type="button" class="link-btn" onclick="selectService('Backlit Storefront Glow Sign Fascia', '22 x 4.5 Feet')">
+                                Order Similar <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Upgraded Dedicated Quotation Section (#quote) -->
+    <section id="quote" class="section">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="eyebrow-badge"><i class="fa-solid fa-file-signature"></i> STEP 1 • GET QUOTATION</span>
+                <h2>Request an <span class="gold-text">Instant Signboard Quotation</span></h2>
+                <p>Fill out your signboard details below to receive our best factory price estimate and custom 3D layout directly on WhatsApp or Email.</p>
+            </div>
+
+            <div class="quote-single-card reveal">
+                <div class="quote-card-top">
+                    <div>
+                        <h3><i class="fa-brands fa-whatsapp"></i> Custom Signboard Quotation Form</h3>
+                        <p class="quote-subtext">Complete the details below — our design desk responds with a 3D mockup &amp; quotation.</p>
+                    </div>
+                    <span class="quote-priority-tag"><i class="fa-solid fa-bolt"></i> Fast Response</span>
+                </div>
+
+                <!-- 4-Pillar Trust Strip Inside Form -->
+                <div class="quote-perks-strip">
+                    <div class="quote-perk-item"><i class="fa-solid fa-compass-drafting"></i> Free 3D Design Preview</div>
+                    <div class="quote-perk-item"><i class="fa-solid fa-ruler-combined"></i> On-Site Measurement</div>
+                    <div class="quote-perk-item"><i class="fa-solid fa-industry"></i> Direct Factory Pricing</div>
+                    <div class="quote-perk-item"><i class="fa-solid fa-shield-halved"></i> Up to 5-Year Warranty</div>
+                </div>
+
+                <form id="whatsappQuoteForm">
+                    <!-- Row 1: Name & Phone -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="custName"><i class="fa-regular fa-user"></i> Your Full Name *</label>
+                            <input type="text" id="custName" required placeholder="Enter your full name">
+                        </div>
+                        <div class="form-group">
+                            <label for="custPhone"><i class="fa-solid fa-mobile-screen"></i> Your Mobile / WhatsApp Number *</label>
+                            <input type="tel" id="custPhone" required placeholder="e.g., +91 98765 43210">
+                        </div>
+                    </div>
+
+                    <!-- Row 2: Shop Name & City / Location -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="custShopName"><i class="fa-solid fa-store"></i> Shop / Business Name (Signboard Text) *</label>
+                            <input type="text" id="custShopName" required placeholder="e.g., Brand Hut / Sher-E-Punjab / Prestige Emporium">
+                        </div>
+                        <div class="form-group">
+                            <label for="custCity"><i class="fa-solid fa-location-dot"></i> City / Installation Location *</label>
+                            <input type="text" id="custCity" required placeholder="e.g., Jind, Hansi, Hisar, Rohtak, Narwana...">
+                        </div>
+                    </div>
+
+                    <!-- Row 3: Board Category & Preferred Illumination/Finish -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="custService"><i class="fa-solid fa-layer-group"></i> Select Board Category *</label>
+                            <select id="custService" required>
+                                <option value="3D Acrylic & Champagne Gold Signage">3D Acrylic &amp; Champagne Gold Signage</option>
+                                <option value="Brushed Gold & Steel 3D Halo Letters">Brushed Gold &amp; Steel 3D Halo Letters</option>
+                                <option value="Backlit Storefront Glow Sign Fascia">Backlit Storefront Glow Sign Fascia</option>
+                                <option value="Architectural LED Contour & Script Signs">Architectural LED Contour &amp; Script Signs</option>
+                                <option value="HD Star Flex, Vinyl & Sunboard Printing">HD Star Flex, Vinyl &amp; Sunboard Printing</option>
+                                <option value="Visiting Cards & Complete Corporate Branding">Visiting Cards &amp; Complete Corporate Branding</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="custFinish"><i class="fa-solid fa-wand-magic-sparkles"></i> Preferred LED &amp; Base Finish</label>
+                            <select id="custFinish">
+                                <option value="Champagne Gold Halo + Matte Charcoal ACP">Champagne Gold Halo + Matte Charcoal ACP</option>
+                                <option value="Warm White 3D LED + Dark Bronze ACP">Warm White 3D LED + Dark Bronze ACP</option>
+                                <option value="Red & Warm White 3D Acrylic + Black ACP">Red &amp; Warm White 3D Acrylic + Black ACP</option>
+                                <option value="Brushed Stainless Steel + Walnut Timber ACP">Brushed Stainless Steel + Walnut Timber ACP</option>
+                                <option value="Full Backlit Glow Sign Fascia">Full Backlit Glow Sign Fascia</option>
+                                <option value="Need Expert Material Recommendation">Need Expert Material Recommendation</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Row 4: Size & Installation Type -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="custSize"><i class="fa-solid fa-arrows-left-right"></i> Approx. Board Size (in Feet)</label>
+                            <input type="text" id="custSize" placeholder="e.g., 10 x 3 Feet or Need Site Survey">
+                            <div class="quote-size-chips">
+                                <button type="button" class="quote-size-chip" onclick="setQuoteSize('8 x 3 Feet')">8×3 ft</button>
+                                <button type="button" class="quote-size-chip" onclick="setQuoteSize('10 x 3 Feet')">10×3 ft</button>
+                                <button type="button" class="quote-size-chip" onclick="setQuoteSize('12 x 4 Feet')">12×4 ft</button>
+                                <button type="button" class="quote-size-chip" onclick="setQuoteSize('20 x 4 Feet')">20×4 ft</button>
+                                <button type="button" class="quote-size-chip" onclick="setQuoteSize('Need On-Site Measurement')">Site Survey</button>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="custMounting"><i class="fa-solid fa-screwdriver-wrench"></i> Installation / Mounting Location</label>
+                            <select id="custMounting">
+                                <option value="Shop / Showroom Main Storefront">Shop / Showroom Main Storefront</option>
+                                <option value="Rooftop / Highway Building Elevation">Rooftop / Highway Building Elevation</option>
+                                <option value="Institutional / School Main Entrance Gate">Institutional / School Main Entrance Gate</option>
+                                <option value="Indoor Reception / Office Lobby Wall">Indoor Reception / Office Lobby Wall</option>
+                                <option value="Need Site Inspection & Advice">Need Site Inspection &amp; Advice</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="custMsg"><i class="fa-regular fa-comment-dots"></i> Additional Design or Installation Details</label>
+                        <textarea id="custMsg" rows="3" placeholder="Mention preferred colors, logo requirement, timeline, or installation height..."></textarea>
+                    </div>
+
+                    <div class="form-submit-grid">
+                        <button type="submit" class="btn-whatsapp-submit">
+                            <i class="fa-brands fa-whatsapp"></i> Send Quote Request on WhatsApp
+                        </button>
+                        <button type="button" id="sendEmailQuoteBtn" class="btn-email-submit">
+                            <i class="fa-solid fa-envelope"></i> Send Quote Request via Email
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- LAST: Dedicated Contact & Studio Address Section (#contact) — Copy Buttons Removed + Live Map Added Below -->
+    <section id="contact" class="section section-alt">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="eyebrow-badge"><i class="fa-solid fa-location-dot"></i> STEP 2 • DIRECT CONTACT &amp; STUDIO</span>
+                <h2>Visit or Contact <span class="gold-text">Parshant Graphics</span></h2>
+                <p>Reach out to us directly via phone, WhatsApp, or email, or visit our signage studio in Jind, Haryana for live material samples and consultation.</p>
+            </div>
+
+            <div class="contact-grid-layout reveal">
+                <!-- Card 1: Phone & WhatsApp (Copy button removed as requested) -->
+                <div class="c-card">
+                    <div class="c-card-icon"><i class="fa-solid fa-phone-volume"></i></div>
+                    <div>
+                        <h4>Phone &amp; WhatsApp</h4>
+                        <p><a href="tel:+917988300872">+91 79883 00872</a></p>
+                        <div class="c-card-actions">
+                            <a href="tel:+917988300872" class="mini-action-chip"><i class="fa-solid fa-phone"></i> Call Now</a>
+                            <a href="https://wa.me/917988300872" target="_blank" rel="noopener noreferrer" class="mini-action-chip"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2: Official Email (Copy button removed as requested) -->
+                <div class="c-card">
+                    <div class="c-card-icon"><i class="fa-solid fa-envelope-open-text"></i></div>
+                    <div>
+                        <h4>Official Email Desk</h4>
+                        <p><a href="mailto:sahilvats0009@gmail.com">sahilvats0009@gmail.com</a></p>
+                        <div class="c-card-actions">
+                            <a href="mailto:sahilvats0009@gmail.com?subject=Signage%20Inquiry%20-%20Parshant%20Graphics" class="mini-action-chip"><i class="fa-solid fa-paper-plane"></i> Email Us</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3: Studio Location (Jind, Haryana) (Copy button removed as requested) -->
+                <div class="c-card">
+                    <div class="c-card-icon"><i class="fa-solid fa-map-location-dot"></i></div>
+                    <div>
+                        <h4>Our Shop Address</h4>
+                        <p>Kishanpura Road, opp. New Anaj Mandi, New Anaj Mandi, Jind, Haryana 126114</p>
+                        <div class="c-card-actions">
+                            <a href="https://www.google.com/maps/search/?api=1&query=Kishanpura+Road+opp+New+Anaj+Mandi+Jind+Haryana+126114" target="_blank" rel="noopener noreferrer" class="mini-action-chip"><i class="fa-solid fa-diamond-turn-right"></i> Open in Google Maps</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4: Working Hours -->
+                <div class="c-card">
+                    <div class="c-card-icon"><i class="fa-solid fa-clock"></i></div>
+                    <div>
+                        <h4>Working Hours</h4>
+                        <p>Monday – Sunday: 9:00 AM – 8:30 PM</p>
+                        <p style="color: var(--gold-light); font-size: 0.72rem; margin-top: 4px;">On-Site Measurement &amp; Fitting Available</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Live Google Map Embed Below Contact Cards (Not in Top Navbar) -->
+            <div class="contact-map-card reveal">
+                <div class="contact-map-header">
+                    <div class="contact-map-title">
+                        <span class="map-pulse-dot"></span>
+                        <div>
+                            <h4><i class="fa-solid fa-map-pin" style="color: var(--gold-light); margin-right: 6px;"></i> Live Studio Location — Prashant Graphics, Jind</h4>
+                            <p>Kishanpura Road, opp. New Anaj Mandi, New Anaj Mandi, Jind, Haryana 126114</p>
+                        </div>
+                    </div>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Prashant+Graphics+Kishanpura+Road+Jind+Haryana" target="_blank" rel="noopener noreferrer" class="btn-secondary map-dir-btn">
+                        <i class="fa-solid fa-diamond-turn-right"></i> Get Directions
+                    </a>
+                </div>
+                <div class="contact-map-frame">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3479.9243184610696!2d76.32553787378454!3d29.28455075417665!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390f93b93672260f%3A0xbff6cb880f7e9bd4!2sPrashant%20Graphics!5e0!3m2!1sen!2sin!4v1793969175977!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" title="Prashant Graphics Live Location Map"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid reveal">
+                <div class="footer-brand">
+                    <a href="#home" class="logo">
+                        <span class="logo-icon logo-img-box" title="Click to view logo full screen">
+                            <img src="images/logo.png" alt="Parshant Graphics Logo" class="nav-logo-img clickable-img" data-title="PARSHANT GRAPHICS — Official Logo" data-caption="Signage • Print • Branding | 3D Sign Studio, Jind" onerror="handleImageFallback(this, 'logo.png')">
+                        </span>
+                        <div class="logo-text">
+                            <span class="brand-main" style="color: #faf8f5;">PARSHANT GRAPHICS</span>
+                            <span class="brand-sub">3D SIGN STUDIO</span>
+                        </div>
+                    </a>
+                    <p>Luxury architectural 3D signage, champagne gold &amp; stainless steel halo letters, backlit storefront fascias, and commercial printing in Jind, Haryana.</p>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#customizer">3D Sign Studio</a></li>
+                        <li><a href="#portfolio">Portfolio</a></li>
+                        <li><a href="#quote">Get Quote</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Board Categories</h4>
+                    <ul>
+                        <li><a href="#quote" onclick="selectService('3D Acrylic & Champagne Gold Signage')">3D Acrylic LED Letters</a></li>
+                        <li><a href="#quote" onclick="selectService('Brushed Gold & Steel 3D Halo Letters')">Champagne Gold Signage</a></li>
+                        <li><a href="#quote" onclick="selectService('Backlit Storefront Glow Sign Fascia')">Backlit Storefront Fascia</a></li>
+                        <li><a href="#quote" onclick="selectService('HD Star Flex, Vinyl & Sunboard Printing')">HD Star Flex &amp; Vinyl</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Studio Contact</h4>
+                    <ul>
+                        <li><a href="tel:+917988300872"><i class="fa-solid fa-phone" style="color: var(--gold-light); margin-right: 6px;"></i> +91 79883 00872</a></li>
+                        <li><a href="https://wa.me/917988300872" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp" style="color: #25d366; margin-right: 6px;"></i> WhatsApp: 7988300872</a></li>
+                        <li><a href="mailto:sahilvats0009@gmail.com"><i class="fa-solid fa-envelope" style="color: var(--gold-light); margin-right: 6px;"></i> sahilvats0009@gmail.com</a></li>
+                        <li><span><i class="fa-solid fa-location-dot" style="color: var(--gold-light); margin-right: 6px;"></i> Kishanpura Road, opp. New Anaj Mandi, Jind, Haryana 126114</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 <strong>PARSHANT GRAPHICS</strong>. All Rights Reserved.</p>
+                <p>Kishanpura Road, opp. New Anaj Mandi, Jind, Haryana 126114 | <a href="tel:+917988300872" style="color: var(--gold-light);">+91 79883 00872</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Project Details Modal -->
+    <div class="modal-backdrop" id="projectModal">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3 id="modalProjTitle">Project Details</h3>
+                <button type="button" class="icon-btn" onclick="closeProjectModal()" aria-label="Close Modal">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div style="margin-bottom: 14px;">
+                <span class="eyebrow-badge" id="modalProjBadge">3D Signage</span>
+                <p id="modalProjSpecs" style="color: var(--text-secondary); font-size: 0.82rem; margin-top: 8px; line-height: 1.6;"></p>
+            </div>
+            <div style="background: var(--bg-charcoal); border: 1px solid var(--border-subtle); border-radius: 8px; padding: 12px; margin-bottom: 16px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: 0.78rem;">
+                <div>
+                    <span style="color: var(--text-muted); display: block;">Recommended Size</span>
+                    <strong id="modalProjSize" style="color: var(--warm-white);">10 x 3 Feet</strong>
+                </div>
+                <div>
+                    <span style="color: var(--text-muted); display: block;">Warranty Coverage</span>
+                    <strong id="modalProjWarranty" style="color: var(--gold-light);">3 Years Warranty</strong>
+                </div>
+            </div>
+            <div style="display: flex; gap: 10px; justify-content: flex-end; flex-wrap: wrap;">
+                <button type="button" class="btn-secondary" id="modalViewPhotoBtn" style="display: none;">
+                    <i class="fa-solid fa-expand"></i> Full Screen Photo
+                </button>
+                <button type="button" class="btn-secondary" onclick="closeProjectModal()">Close</button>
+                <button type="button" class="btn-primary" id="modalOrderSimilarBtn">
+                    <i class="fa-brands fa-whatsapp"></i> Request Quote for This Style
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Full-Screen Image Lightbox Modal (Opens Any Clicked Image on Screen) -->
+    <div class="lightbox-backdrop" id="imageLightboxModal" aria-hidden="true">
+        <div class="lightbox-topbar">
+            <span class="lightbox-counter" id="lightboxCounter">Image Preview</span>
+            <div class="lightbox-controls">
+                <button type="button" class="lightbox-ctrl-btn" id="lightboxZoomBtn" onclick="toggleLightboxZoom()" title="Zoom In / Out" aria-label="Zoom Image">
+                    <i class="fa-solid fa-magnifying-glass-plus"></i>
+                </button>
+                <button type="button" class="lightbox-ctrl-btn lightbox-close-btn" onclick="closeImageLightbox()" title="Close Full Screen (Esc)" aria-label="Close Full Screen">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+        </div>
+
+        <button type="button" class="lightbox-nav-btn prev" onclick="navigateLightbox(-1)" title="Previous Image" aria-label="Previous Image">
+            <i class="fa-solid fa-chevron-left"></i>
+        </button>
+
+        <div class="lightbox-stage" id="lightboxStage">
+            <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="Full Screen Preview" id="lightboxImg" class="lightbox-main-img">
+            <div class="lightbox-caption-box">
+                <h4 id="lightboxTitle">PARSHANT GRAPHICS</h4>
+                <p id="lightboxCaption">3D Sign Studio &amp; Architectural Signage</p>
+            </div>
+        </div>
+
+        <button type="button" class="lightbox-nav-btn next" onclick="navigateLightbox(1)" title="Next Image" aria-label="Next Image">
+            <i class="fa-solid fa-chevron-right"></i>
+        </button>
+    </div>
+
+    <!-- Interactive Floating WhatsApp Live Chat Widget -->
+    <div class="wa-widget-wrapper">
+        <div class="wa-chat-box" id="waChatBox">
+            <div class="wa-chat-header">
+                <div class="wa-agent-info">
+                    <div class="wa-avatar"><i class="fa-brands fa-whatsapp"></i></div>
+                    <div>
+                        <h5>Parshant Graphics</h5>
+                        <span>Online | +91 79883 00872</span>
+                    </div>
+                </div>
+                <button type="button" class="wa-close-btn" id="waCloseBtn" aria-label="Close Chat">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <div class="wa-chat-body">
+                <div class="wa-msg-bubble">
+                    Hello! Welcome to <strong>Parshant Graphics (3D Sign Studio)</strong>, Kishanpura Road, opp. New Anaj Mandi, Jind. How can we help you today?
+                    <small>WhatsApp: +91 79883 00872 | sahilvats0009@gmail.com</small>
+                </div>
+                <p style="font-size: 0.7rem; color: var(--text-muted); margin-bottom: 6px; font-weight: 600;">Quick Messages:</p>
+                <div class="wa-quick-chips">
+                    <button type="button" class="wa-chip" data-msg="Hello Parshant Graphics! I want a quotation for a 3D Acrylic / Champagne Gold LED Signboard.">3D LED Sign Quote</button>
+                    <button type="button" class="wa-chip" data-msg="Hello! I want to inquire about Brushed Gold & Stainless Steel 3D Halo Letters.">Gold &amp; Steel 3D Letters</button>
+                    <button type="button" class="wa-chip" data-msg="Hello! I would like to book an on-site measurement for my shop signboard.">Book Site Survey</button>
+                    <button type="button" class="wa-chip" data-msg="Hello! I need HD Star Flex, Vinyl printing, or Visiting Cards.">HD Flex &amp; Print</button>
+                </div>
+            </div>
+
+            <div class="wa-chat-footer">
+                <input type="text" id="waQuickInput" placeholder="Write a message to +91 79883 00872...">
+                <button type="button" class="wa-send-btn" id="waSendBtn" title="Send on WhatsApp" aria-label="Send WhatsApp Message">
+                    <i class="fa-solid fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+
+        <button type="button" class="floating-wa-btn" id="waToggleBtn" title="Chat on WhatsApp (+91 79883 00872)" aria-label="Open WhatsApp Chat">
+            <i class="fa-brands fa-whatsapp"></i>
+            <span class="wa-badge-dot"></span>
+        </button>
+    </div>
+
+    <!-- Toast Notification Container -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- Custom Script -->
+    <script src="script.js"></script>
+</body>
+</html>
