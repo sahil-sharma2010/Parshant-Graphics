@@ -1,15 +1,118 @@
 /* ==========================================================================
    PARSHANT GRAPHICS — Luxury Architectural Minimalism Interactive Script
-   Mobile & WhatsApp: +91 79883 00872 | Email: sahilvats0009@gmail.com
-   Address: Kishanpura Road, opp. New Anaj Mandi, New Anaj Mandi, Jind, Haryana 126114
+   Brand: PARSHANT GRAPHICS | Tagline: MAKE YOUR BRAND VISIBLE.
+   Theme: Charcoal Black + Champagne Gold + Warm White
    ========================================================================== */
 
-const OWNER_WHATSAPP_NUMBER = "917988300872";
-const OWNER_PHONE_DISPLAY = "+91 79883 00872";
-const OWNER_EMAIL = "sahilvats0009@gmail.com";
-const OWNER_ADDRESS = "Kishanpura Road, opp. New Anaj Mandi, New Anaj Mandi, Jind, Haryana 126114";
+/* --------------------------------------------------------------------------
+   1. CENTRAL CONFIGURATION (WhatsApp, Google Maps & Google Rating Config)
+   -------------------------------------------------------------------------- */
+const SITE_CONFIG = {
+    whatsappNumber: "917988300872",
+    phoneDisplay: "+91 79883 00872",
+    email: "sahilvats0009@gmail.com",
+    address: "Kishanpura Road, opp. New Anaj Mandi, New Anaj Mandi, Jind, Haryana 126114",
+    whatsappDefaultMessage:
+        "Hello PARSHANT GRAPHICS! 👋\n" +
+        "I visited your website and I'm interested in your signage services.\n" +
+        "I would like to know more about your services and pricing.\n" +
+        "Please share the details.\n" +
+        "Thank you!"
+};
 
-// 0. Automatic Image Path Fallback (Checks images/filename first, then root filename)
+const OWNER_WHATSAPP_NUMBER = SITE_CONFIG.whatsappNumber;
+const GOOGLE_MAPS_URL = "https://www.google.com/maps/search/?api=1&query=Prashant+Graphics+Kishanpura+Road+Jind+Haryana";
+
+// Configurable Google Maps Business Rating (Easily updatable in the future)
+const GOOGLE_RATING_CONFIG = {
+    businessName: "PARSHANT GRAPHICS",
+    rating: "4.8",
+    maxRating: "5",
+    totalReviews: "409",
+    category: "Graphic Designer",
+    stars: 5,
+    googleMapsUrl: GOOGLE_MAPS_URL
+};
+
+/* --------------------------------------------------------------------------
+   2. RECENT PROJECTS DATA & GENUINE GOOGLE CUSTOMER REVIEWS (3 Projects)
+   -------------------------------------------------------------------------- */
+const RECENT_PROJECTS_DATA = [
+    {
+        id: 0,
+        name: "BRAND HUT — 3D LED Storefront Signage",
+        badge: "3D Acrylic LED Showroom",
+        image: "images/service1.png",
+        fallbackFile: "service1.png",
+        size: "12 x 3.5 Feet",
+        warranty: "3 Years Comprehensive Warranty",
+        inquiryTopic: "BRAND HUT Style 3D Acrylic LED Signage",
+        description:
+            "Custom laser-cut red and warm-white 3D acrylic channel letters with an illuminated rooftop house emblem mounted on a weatherproof 4mm matte charcoal ACP storefront fascia.",
+        reviews: [
+            {
+                stars: 5,
+                text: "Thankyou so much for this beautiful 3d letters",
+                source: "Google Reviews"
+            },
+            {
+                stars: 5,
+                text: "Bahut badiya kaam ker rakha bhaio ne dil khus hai bilkul 😊",
+                source: "Google Reviews"
+            }
+        ]
+    },
+    {
+        id: 1,
+        name: "SHER - E - PUNJAB — 3D Outdoor LED Fascia",
+        badge: "3D Warm White Highway LED",
+        image: "images/service2.png",
+        fallbackFile: "service2.png",
+        size: "20 x 4 Feet",
+        warranty: "5 Years Outdoor LED Warranty",
+        inquiryTopic: "SHER-E-PUNJAB Style 3D Highway LED Signage",
+        description:
+            "Large-scale weatherproof warm-white and champagne gold 3D illuminated channel letters with custom backlit emblem, metallic returns, top floodlights, and full elevation cladding engineered for long-distance highway and night visibility.",
+        reviews: [
+            {
+                stars: 5,
+                text: "Excellent service. I Am totally satisfied. Behavior is also good.",
+                source: "Google Reviews"
+            },
+            {
+                stars: 5,
+                text: "Very excellent service very good cooperative staff and best work in best prices",
+                source: "Google Reviews"
+            }
+        ]
+    },
+    {
+        id: 2,
+        name: "AAROHI MODEL SR. SEC. SCHOOL — Gate Signage",
+        badge: "Architectural Gate ACP & Gold",
+        image: "images/service3.png",
+        fallbackFile: "service3.png",
+        size: "22 x 4.5 Feet",
+        warranty: "5 Years Structural & LED Warranty",
+        inquiryTopic: "AAROHI MODEL SR. SEC. SCHOOL Style Gate ACP & 3D Signage",
+        description:
+            "Complete institutional entrance gate ACP pillar cladding and matte black fascia with champagne gold 3D lettering, warm-white LED border tubing, and recessed spot downlights installed at Kheri Lohchab (Hansi).",
+        reviews: [
+            {
+                stars: 5,
+                text: "Very impressive work..best services",
+                source: "Google Reviews"
+            },
+            {
+                stars: 5,
+                text: "fully satisfied work and fully experienced worked best graphics in jind",
+                source: "Google Reviews"
+            }
+        ]
+    }
+];
+
+// Automatic Image Path Fallback
 function handleImageFallback(imgEl, rootFileName) {
     if (!imgEl) return;
     if (!imgEl.dataset.triedRoot && rootFileName) {
@@ -20,7 +123,7 @@ function handleImageFallback(imgEl, rootFileName) {
     }
 }
 
-// 1. In-Page Toast Notification
+// In-Page Toast Notification
 function showToast(message, iconClass = "fa-solid fa-circle-check") {
     const container = document.getElementById("toastContainer");
     if (!container) return;
@@ -35,7 +138,7 @@ function showToast(message, iconClass = "fa-solid fa-circle-check") {
     }, 3200);
 }
 
-// 2. Copy to Clipboard Helper (Preserved for compatibility)
+// Copy to Clipboard Helper
 function copyToClipboard(text, label) {
     if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(text).then(() => {
@@ -62,15 +165,52 @@ function fallbackCopy(text, label) {
     document.body.removeChild(ta);
 }
 
-// 3. Bidirectional Smooth Scroll Reveal Observer (Animates Every Time on Scroll Up & Down)
+// Central WhatsApp Click-to-Chat Builder & Direct Launcher
+function getWhatsAppClickToChatUrl(customMessage) {
+    const textToSend = customMessage || SITE_CONFIG.whatsappDefaultMessage;
+    return `https://wa.me/${OWNER_WHATSAPP_NUMBER}?text=${encodeURIComponent(textToSend)}`;
+}
+
+function openDirectWhatsApp() {
+    const url = getWhatsAppClickToChatUrl(SITE_CONFIG.whatsappDefaultMessage);
+    window.open(url, "_blank", "noopener,noreferrer");
+}
+
+function initCentralConfigAndRating() {
+    // Wire floating WhatsApp button to central config Click-to-Chat URL
+    const waFloatingBtn = document.getElementById("waFloatingBtn");
+    if (waFloatingBtn) {
+        waFloatingBtn.href = getWhatsAppClickToChatUrl(SITE_CONFIG.whatsappDefaultMessage);
+    }
+
+    // Populate Why Choose Us Google Rating Card from GOOGLE_RATING_CONFIG
+    const grBusinessName = document.getElementById("grBusinessName");
+    const grBusinessCategory = document.getElementById("grBusinessCategory");
+    const grRatingValue = document.getElementById("grRatingValue");
+    const grRatingMax = document.getElementById("grRatingMax");
+    const grTotalReviews = document.getElementById("grTotalReviews");
+
+    if (grBusinessName) grBusinessName.textContent = GOOGLE_RATING_CONFIG.businessName;
+    if (grBusinessCategory) grBusinessCategory.textContent = GOOGLE_RATING_CONFIG.category;
+    if (grRatingValue) grRatingValue.textContent = GOOGLE_RATING_CONFIG.rating;
+    if (grRatingMax) grRatingMax.textContent = GOOGLE_RATING_CONFIG.maxRating;
+    if (grTotalReviews) grTotalReviews.textContent = GOOGLE_RATING_CONFIG.totalReviews;
+
+    // Wire all Google Maps links to central GOOGLE_MAPS_URL
+    document.querySelectorAll(".js-google-maps-link").forEach(link => {
+        link.href = GOOGLE_MAPS_URL;
+    });
+}
+initCentralConfigAndRating();
+
+// Bidirectional Smooth Scroll Reveal Observer
 function initScrollReveal() {
-    // Also add .reveal to individual cards so every card animates smoothly on scroll up/down
-    const autoRevealSelectors = ".service-card, .portfolio-card, .c-card, .stat-box";
+    const autoRevealSelectors = ".service-card, .portfolio-card, .why-card, .process-card, .c-card, .stat-box, .about-metric-item, .google-rating-card";
     document.querySelectorAll(autoRevealSelectors).forEach((el, idx) => {
         if (!el.classList.contains("reveal")) {
             el.classList.add("reveal");
         }
-        el.style.transitionDelay = `${(idx % 4) * 55}ms`;
+        el.style.transitionDelay = `${(idx % 4) * 50}ms`;
     });
 
     const revealEls = document.querySelectorAll(".reveal");
@@ -83,7 +223,6 @@ function initScrollReveal() {
                 entry.target.classList.remove("reveal-pending-down", "reveal-pending-up");
             } else {
                 entry.target.classList.remove("reveal-visible");
-                // Set directional class based on whether element is above or below viewport
                 if (entry.boundingClientRect.top < 0) {
                     entry.target.classList.add("reveal-pending-up");
                     entry.target.classList.remove("reveal-pending-down");
@@ -94,8 +233,8 @@ function initScrollReveal() {
             }
         });
     }, {
-        threshold: 0.10,
-        rootMargin: "0px 0px -30px 0px"
+        threshold: 0.08,
+        rootMargin: "0px 0px -24px 0px"
     });
 
     revealEls.forEach(el => {
@@ -112,7 +251,7 @@ function initScrollReveal() {
 }
 initScrollReveal();
 
-// 4. Mobile Navigation Menu Toggle & Active ScrollSpy Underline ("Danda" Follows Scroll)
+// Mobile Navigation Menu Toggle & Active ScrollSpy Underline
 const menuToggle = document.getElementById("menuToggle");
 const navLinks = document.getElementById("navLinks");
 const mainNavbar = document.getElementById("mainNavbar");
@@ -145,8 +284,7 @@ function updateActiveNavOnScroll() {
         mainNavbar.classList.toggle("scrolled", scrollY > 20);
     }
 
-    // Determine which section is currently active at the top/middle of viewport
-    const triggerLine = scrollY + 150;
+    const triggerLine = scrollY + 140;
     let currentSectionId = trackedSections.length > 0 ? trackedSections[0].id : "home";
 
     for (let i = 0; i < trackedSections.length; i++) {
@@ -156,7 +294,6 @@ function updateActiveNavOnScroll() {
         }
     }
 
-    // If scrolled to the very bottom of page, highlight the last nav section
     if ((window.innerHeight + scrollY) >= (document.documentElement.scrollHeight - 30)) {
         if (trackedSections.length > 0) {
             currentSectionId = trackedSections[trackedSections.length - 1].id;
@@ -177,7 +314,7 @@ window.addEventListener("scroll", updateActiveNavOnScroll, { passive: true });
 window.addEventListener("resize", updateActiveNavOnScroll);
 updateActiveNavOnScroll();
 
-// 5. Charcoal Dark / Warm White Light Theme Switcher
+// Charcoal Dark / Warm White Light Theme Switcher
 const themeToggleBtn = document.getElementById("themeToggleBtn");
 if (themeToggleBtn) {
     themeToggleBtn.addEventListener("click", () => {
@@ -190,7 +327,7 @@ if (themeToggleBtn) {
     });
 }
 
-// 6. Hero Signboard Finish Preset Switcher
+// Hero Signboard Finish Preset Switcher
 const heroPresets = {
     gold: {
         title: "PARSHANT GRAPHICS",
@@ -240,299 +377,20 @@ document.querySelectorAll(".preset-pill").forEach(btn => {
     });
 });
 
-// 7. Upgraded Interactive 3D Sign Studio Pro Logic
-const shopNameInput = document.getElementById("shopNameInput");
-const shopSubInput = document.getElementById("shopSubInput");
-const fontSelect = document.getElementById("fontSelect");
-const boardWidthInput = document.getElementById("boardWidthInput");
-const boardHeightInput = document.getElementById("boardHeightInput");
-const previewShopName = document.getElementById("previewShopName");
-const previewShopSub = document.getElementById("previewShopSub");
-const previewSubBar = document.getElementById("previewSubBar");
-const acpBoard = document.getElementById("acpBoard");
-const boardBorder = document.getElementById("boardBorder");
-const colorBtns = document.querySelectorAll(".color-btn");
-const bgBtns = document.querySelectorAll(".bg-btn");
-const sizePresetBtns = document.querySelectorAll(".size-preset-btn");
-const lightingBtns = document.querySelectorAll(".lighting-btn");
-const borderBtns = document.querySelectorAll(".border-btn");
-const emblemBtns = document.querySelectorAll(".emblem-btn");
-const glowRangeInput = document.getElementById("glowRangeInput");
-const glowPercentText = document.getElementById("glowPercentText");
-const selectedColorLabel = document.getElementById("selectedColorLabel");
-const previewEmblemWrap = document.getElementById("previewEmblemWrap");
-const previewEmblemIcon = document.getElementById("previewEmblemIcon");
-const toggleDayNight = document.getElementById("toggleDayNight");
-const toggleSubBarBtn = document.getElementById("toggleSubBarBtn");
-const signboardStage = document.getElementById("signboardStage");
-const calcAreaText = document.getElementById("calcAreaText");
-const calcFinishText = document.getElementById("calcFinishText");
-
-let selectedColor = "#e0c283";
-let selectedColorName = "Champagne Gold Halo";
-let selectedBgName = "Matte Charcoal ACP";
-let selectedLightingName = "3D Halo Lit";
-let selectedBorderName = "Gold Frame";
-let isSubBarVisible = true;
-
-const acpBackgroundStyles = {
-    charcoal: "#111215",
-    bronze: "linear-gradient(135deg, #261e16, #14100c)",
-    walnut: "linear-gradient(135deg, #32221a, #18100c)",
-    slate: "linear-gradient(135deg, #1e232d, #0f1218)",
-    marble: "radial-gradient(circle at 20% 20%, #2b2927 0%, #0d0d0f 60%, #1f1b14 100%)",
-    navy: "linear-gradient(135deg, #0f1b33, #070d19)",
-    silver: "linear-gradient(135deg, #3a3f47, #1d2026)",
-    emerald: "linear-gradient(135deg, #0d2b22, #071410)"
-};
-
-function updateBoardSpecs() {
-    const w = Math.max(1, parseFloat(boardWidthInput ? boardWidthInput.value : 8) || 8);
-    const h = Math.max(1, parseFloat(boardHeightInput ? boardHeightInput.value : 3) || 3);
-    const sqFt = Math.round(w * h * 10) / 10;
-    if (calcAreaText) {
-        calcAreaText.textContent = `${w} ft × ${h} ft (${sqFt} sq.ft.) • ${selectedLightingName}`;
-    }
-    if (calcFinishText) {
-        calcFinishText.textContent = `${selectedColorName} • ${selectedBgName}`;
-    }
+// Direct Service Inquiry on WhatsApp
+function selectService(serviceName) {
+    const message =
+        `Hello PARSHANT GRAPHICS! 👋\n` +
+        `I visited your website and I'm interested in your signage services (${serviceName}).\n` +
+        `I would like to know more about your services and pricing.\n` +
+        `Please share the details.\n` +
+        `Thank you!`;
+    const waUrl = getWhatsAppClickToChatUrl(message);
+    window.open(waUrl, "_blank", "noopener,noreferrer");
+    showToast(`Opening WhatsApp inquiry for: ${serviceName}`);
 }
 
-if (shopNameInput) {
-    shopNameInput.addEventListener("input", (e) => {
-        const val = e.target.value.trim();
-        previewShopName.textContent = val ? val.toUpperCase() : "YOUR BRAND NAME";
-    });
-}
-
-if (shopSubInput) {
-    shopSubInput.addEventListener("input", (e) => {
-        const val = e.target.value.trim();
-        previewShopSub.textContent = val ? val : "Architectural Signage | Ph: +91 79883 00872";
-    });
-}
-
-if (fontSelect) {
-    fontSelect.addEventListener("change", (e) => {
-        document.documentElement.style.setProperty("--sign-font", e.target.value);
-    });
-}
-
-if (boardWidthInput) boardWidthInput.addEventListener("input", updateBoardSpecs);
-if (boardHeightInput) boardHeightInput.addEventListener("input", updateBoardSpecs);
-
-// Quick Size Preset Buttons
-sizePresetBtns.forEach(btn => {
-    btn.addEventListener("click", () => {
-        sizePresetBtns.forEach(b => b.classList.remove("active"));
-        btn.classList.add("active");
-        const w = btn.getAttribute("data-w");
-        const h = btn.getAttribute("data-h");
-        if (boardWidthInput) boardWidthInput.value = w;
-        if (boardHeightInput) boardHeightInput.value = h;
-        updateBoardSpecs();
-    });
-});
-
-// 10 Illumination & Metallic Colours
-colorBtns.forEach(btn => {
-    btn.addEventListener("click", () => {
-        colorBtns.forEach(b => b.classList.remove("active"));
-        btn.classList.add("active");
-        selectedColor = btn.getAttribute("data-color");
-        selectedColorName = btn.getAttribute("title") || "Champagne Gold Halo";
-        if (selectedColorLabel) selectedColorLabel.textContent = selectedColorName;
-        document.documentElement.style.setProperty("--sign-glow", selectedColor);
-        updateBoardSpecs();
-    });
-});
-
-// 8 ACP Base Finishes
-bgBtns.forEach(btn => {
-    btn.addEventListener("click", () => {
-        bgBtns.forEach(b => b.classList.remove("active"));
-        btn.classList.add("active");
-        const bgType = btn.getAttribute("data-bg");
-        selectedBgName = btn.textContent.trim();
-        if (acpBoard && acpBackgroundStyles[bgType]) {
-            acpBoard.style.background = acpBackgroundStyles[bgType];
-        }
-        updateBoardSpecs();
-    });
-});
-
-// 4 3D Lighting Effect Modes
-lightingBtns.forEach(btn => {
-    btn.addEventListener("click", () => {
-        lightingBtns.forEach(b => b.classList.remove("active"));
-        btn.classList.add("active");
-        const mode = btn.getAttribute("data-lighting");
-        selectedLightingName = btn.textContent.trim();
-        if (previewShopName) {
-            previewShopName.classList.remove("mode-frontlit", "mode-duallit", "mode-neon");
-            if (mode === "frontlit") previewShopName.classList.add("mode-frontlit");
-            if (mode === "duallit") previewShopName.classList.add("mode-duallit");
-            if (mode === "neon") previewShopName.classList.add("mode-neon");
-        }
-        updateBoardSpecs();
-    });
-});
-
-// 4 Frame / Border Styles
-borderBtns.forEach(btn => {
-    btn.addEventListener("click", () => {
-        borderBtns.forEach(b => b.classList.remove("active"));
-        btn.classList.add("active");
-        const borderType = btn.getAttribute("data-border");
-        selectedBorderName = btn.textContent.trim();
-        if (boardBorder) {
-            boardBorder.classList.remove("border-double", "border-ledtube", "border-none");
-            if (borderType === "double") boardBorder.classList.add("border-double");
-            if (borderType === "ledtube") boardBorder.classList.add("border-ledtube");
-            if (borderType === "none") boardBorder.classList.add("border-none");
-        }
-    });
-});
-
-// 3D Brand Emblem Selector
-emblemBtns.forEach(btn => {
-    btn.addEventListener("click", () => {
-        emblemBtns.forEach(b => b.classList.remove("active"));
-        btn.classList.add("active");
-        const iconClasses = btn.getAttribute("data-emblem");
-        if (previewEmblemWrap && previewEmblemIcon) {
-            if (iconClasses) {
-                previewEmblemIcon.className = iconClasses;
-                previewEmblemWrap.style.display = "block";
-            } else {
-                previewEmblemWrap.style.display = "none";
-            }
-        }
-    });
-});
-
-// Glow Brightness Slider
-if (glowRangeInput) {
-    glowRangeInput.addEventListener("input", (e) => {
-        const pct = parseInt(e.target.value, 10) || 100;
-        if (glowPercentText) glowPercentText.textContent = `${pct}%`;
-        const spreadPx = Math.round((pct / 100) * 18);
-        document.documentElement.style.setProperty("--glow-spread", `${spreadPx}px`);
-    });
-}
-
-// Show / Hide Subtitle Tagline Bar
-if (toggleSubBarBtn && previewSubBar) {
-    toggleSubBarBtn.addEventListener("click", () => {
-        isSubBarVisible = !isSubBarVisible;
-        previewSubBar.style.display = isSubBarVisible ? "inline-block" : "none";
-        toggleSubBarBtn.innerHTML = isSubBarVisible
-            ? '<i class="fa-solid fa-grip-lines"></i> Tagline On'
-            : '<i class="fa-solid fa-grip-lines"></i> Tagline Off';
-    });
-}
-
-if (toggleDayNight) {
-    toggleDayNight.addEventListener("click", () => {
-        signboardStage.classList.toggle("day-mode");
-        const isDay = signboardStage.classList.contains("day-mode");
-        toggleDayNight.innerHTML = isDay
-            ? '<i class="fa-solid fa-sun"></i> Daylight View'
-            : '<i class="fa-solid fa-moon"></i> Night Illumination';
-    });
-}
-
-function resetSignStudio() {
-    if (shopNameInput) shopNameInput.value = "PRESTIGE EMPORIUM";
-    if (shopSubInput) shopSubInput.value = "Bespoke Retail & Luxury Goods | Ph: +91 79883 00872";
-    if (previewShopName) {
-        previewShopName.textContent = "PRESTIGE EMPORIUM";
-        previewShopName.classList.remove("mode-frontlit", "mode-duallit", "mode-neon");
-    }
-    if (previewShopSub) previewShopSub.textContent = "Bespoke Retail & Luxury Goods | Ph: +91 79883 00872";
-    if (boardWidthInput) boardWidthInput.value = "8";
-    if (boardHeightInput) boardHeightInput.value = "3";
-    if (fontSelect) fontSelect.selectedIndex = 0;
-    document.documentElement.style.setProperty("--sign-font", "'Plus Jakarta Sans', sans-serif");
-    document.documentElement.style.setProperty("--sign-glow", "#e0c283");
-    document.documentElement.style.setProperty("--glow-spread", "18px");
-    if (glowRangeInput) glowRangeInput.value = "100";
-    if (glowPercentText) glowPercentText.textContent = "100%";
-
-    selectedColor = "#e0c283";
-    selectedColorName = "Champagne Gold Halo";
-    selectedBgName = "Matte Charcoal ACP";
-    selectedLightingName = "3D Halo Lit";
-    selectedBorderName = "Gold Frame";
-
-    if (selectedColorLabel) selectedColorLabel.textContent = selectedColorName;
-    if (acpBoard) acpBoard.style.background = "#111215";
-    if (boardBorder) boardBorder.classList.remove("border-double", "border-ledtube", "border-none");
-    if (previewEmblemWrap) previewEmblemWrap.style.display = "none";
-
-    colorBtns.forEach((b, i) => b.classList.toggle("active", i === 0));
-    bgBtns.forEach((b, i) => b.classList.toggle("active", i === 0));
-    sizePresetBtns.forEach((b, i) => b.classList.toggle("active", i === 0));
-    lightingBtns.forEach((b, i) => b.classList.toggle("active", i === 0));
-    borderBtns.forEach((b, i) => b.classList.toggle("active", i === 0));
-    emblemBtns.forEach((b, i) => b.classList.toggle("active", i === 0));
-
-    updateBoardSpecs();
-    showToast("3D Sign Studio reset to default settings.");
-}
-
-function sendCustomBoardToQuote() {
-    const customName = (shopNameInput && shopNameInput.value.trim()) || "PARSHANT STUDIO";
-    const customSub = (shopSubInput && shopSubInput.value.trim()) || "";
-    const w = (boardWidthInput && boardWidthInput.value) || "8";
-    const h = (boardHeightInput && boardHeightInput.value) || "3";
-
-    const custShopInput = document.getElementById("custShopName");
-    const custServiceSelect = document.getElementById("custService");
-    const custSizeInput = document.getElementById("custSize");
-    const custMsgInput = document.getElementById("custMsg");
-
-    if (custShopInput) custShopInput.value = customName;
-    if (custServiceSelect) custServiceSelect.value = "3D Acrylic & Champagne Gold Signage";
-    if (custSizeInput) custSizeInput.value = `${w} x ${h} Feet`;
-    if (custMsgInput) {
-        custMsgInput.value =
-            `3D Sign Studio Pro Design:\n` +
-            `- Sign Text: ${customName}\n` +
-            `- Subtitle: ${customSub}\n` +
-            `- Lighting Mode: ${selectedLightingName}\n` +
-            `- Finish & Colour: ${selectedColorName}\n` +
-            `- Base ACP Panel: ${selectedBgName}\n` +
-            `- Frame Style: ${selectedBorderName}\n` +
-            `- Dimensions: ${w} ft × ${h} ft`;
-    }
-
-    const quoteSection = document.getElementById("quote");
-    if (quoteSection) quoteSection.scrollIntoView({ behavior: "smooth" });
-    const custNameInput = document.getElementById("custName");
-    if (custNameInput) setTimeout(() => custNameInput.focus(), 450);
-    showToast("Custom 3D board specs loaded into the Quotation Form!");
-}
-
-function selectService(serviceName, defaultSize = "8 x 3 Feet") {
-    const serviceDropdown = document.getElementById("custService");
-    const sizeInput = document.getElementById("custSize");
-    if (serviceDropdown) serviceDropdown.value = serviceName;
-    if (sizeInput) sizeInput.value = defaultSize;
-    const quoteSection = document.getElementById("quote");
-    if (quoteSection) quoteSection.scrollIntoView({ behavior: "smooth" });
-    showToast(`Category selected: ${serviceName}`);
-}
-
-function setQuoteSize(sizeVal) {
-    const sizeInput = document.getElementById("custSize");
-    if (sizeInput) {
-        sizeInput.value = sizeVal;
-        showToast(`Board size set to: ${sizeVal}`);
-    }
-}
-
-// 8. Portfolio Filtering & Detail Modal
+// Portfolio Category Filtering
 const filterBtns = document.querySelectorAll(".filter-btn");
 const portfolioCards = document.querySelectorAll(".portfolio-card");
 
@@ -552,323 +410,201 @@ filterBtns.forEach(btn => {
     });
 });
 
-function openProjectModal(title, badge, specs, size, warranty, imageId = "") {
-    const modal = document.getElementById("projectModal");
-    if (!modal) return;
-    document.getElementById("modalProjTitle").textContent = title;
-    document.getElementById("modalProjBadge").textContent = badge;
-    document.getElementById("modalProjSpecs").textContent = specs;
-    document.getElementById("modalProjSize").textContent = size;
-    document.getElementById("modalProjWarranty").textContent = warranty;
+// --------------------------------------------------------------------------
+// DEDICATED FULL-PAGE VIEW 1: RECENT PROJECTS DETAIL PAGE (3 Projects)
+// --------------------------------------------------------------------------
+let currentProjectIndex = 0;
 
-    const viewPhotoBtn = document.getElementById("modalViewPhotoBtn");
-    if (viewPhotoBtn) {
-        const targetImg = imageId ? document.getElementById(imageId) : null;
-        if (targetImg) {
-            viewPhotoBtn.style.display = "inline-flex";
-            viewPhotoBtn.onclick = () => {
-                closeProjectModal();
-                openImageLightbox(targetImg);
-            };
-        } else {
-            viewPhotoBtn.style.display = "none";
-        }
+function renderStarsHtml(count = 5) {
+    let html = "";
+    for (let i = 0; i < count; i++) {
+        html += '<i class="fa-solid fa-star"></i>';
     }
+    return html;
+}
 
-    const orderBtn = document.getElementById("modalOrderSimilarBtn");
-    if (orderBtn) {
-        orderBtn.onclick = () => {
-            closeProjectModal();
-            selectService(badge, size);
+function renderProjectDetailView(index) {
+    const total = RECENT_PROJECTS_DATA.length;
+    currentProjectIndex = ((index % total) + total) % total;
+    const project = RECENT_PROJECTS_DATA[currentProjectIndex];
+    if (!project) return;
+
+    const detailImg = document.getElementById("detailProjImg");
+    const detailBadge = document.getElementById("detailProjBadge");
+    const detailCounter = document.getElementById("detailProjCounter");
+    const detailName = document.getElementById("detailProjName");
+    const detailDesc = document.getElementById("detailProjDesc");
+    const detailSize = document.getElementById("detailProjSize");
+    const detailWarranty = document.getElementById("detailProjWarranty");
+    const detailReviewsList = document.getElementById("detailReviewsList");
+    const detailInquireBtn = document.getElementById("detailInquireBtn");
+
+    if (detailImg) {
+        const domCardImg = document.getElementById(`serviceImg${currentProjectIndex + 1}`);
+        detailImg.removeAttribute("data-tried-root");
+        detailImg.removeAttribute("data-fallback");
+        detailImg.src = (domCardImg && domCardImg.getAttribute("src")) ? domCardImg.getAttribute("src") : project.image;
+        detailImg.alt = project.name;
+        detailImg.onerror = function () {
+            handleImageFallback(this, project.fallbackFile);
         };
     }
-    modal.classList.add("open");
-}
 
-function closeProjectModal() {
-    const modal = document.getElementById("projectModal");
-    if (modal) modal.classList.remove("open");
-}
+    if (detailBadge) detailBadge.textContent = project.badge;
+    if (detailCounter) detailCounter.textContent = `PROJECT ${currentProjectIndex + 1} OF ${total}`;
+    if (detailName) detailName.textContent = project.name;
+    if (detailDesc) detailDesc.textContent = project.description;
+    if (detailSize) detailSize.textContent = project.size;
+    if (detailWarranty) detailWarranty.textContent = project.warranty;
 
-// 8B. Full-Screen Image Lightbox Viewer (Click Any Image to Open on Screen)
-let lightboxGallery = [];
-let currentLightboxIndex = 0;
-
-function collectGalleryImages() {
-    const imgs = Array.from(document.querySelectorAll("img.clickable-img"));
-    const uniqueMap = new Map();
-    imgs.forEach(img => {
-        const key = img.getAttribute("src") || img.src;
-        if (key && !uniqueMap.has(key)) {
-            uniqueMap.set(key, {
-                src: img.src || key,
-                attrSrc: key,
-                title: img.getAttribute("data-title") || img.alt || "Parshant Graphics",
-                caption: img.getAttribute("data-caption") || "3D Sign Studio & Architectural Signage"
-            });
-        }
-    });
-    lightboxGallery = Array.from(uniqueMap.values());
-}
-
-function openImageLightbox(imgElement) {
-    if (!imgElement) return;
-    collectGalleryImages();
-    const targetSrc = imgElement.getAttribute("src") || imgElement.src;
-    const foundIdx = lightboxGallery.findIndex(item => item.attrSrc === targetSrc || item.src === imgElement.src);
-    currentLightboxIndex = foundIdx >= 0 ? foundIdx : 0;
-
-    if (lightboxGallery.length === 0) {
-        lightboxGallery = [{
-            src: imgElement.src || targetSrc,
-            attrSrc: targetSrc,
-            title: imgElement.getAttribute("data-title") || imgElement.alt || "Parshant Graphics",
-            caption: imgElement.getAttribute("data-caption") || ""
-        }];
-        currentLightboxIndex = 0;
+    if (detailInquireBtn) {
+        detailInquireBtn.onclick = () => {
+            selectService(project.inquiryTopic);
+        };
     }
 
-    renderLightboxSlide();
-    const modal = document.getElementById("imageLightboxModal");
-    if (modal) {
-        modal.classList.add("open");
-        modal.setAttribute("aria-hidden", "false");
+    if (detailReviewsList) {
+        detailReviewsList.innerHTML = project.reviews.map(rev => `
+            <div class="detail-review-card">
+                <div class="detail-review-card-top">
+                    <span class="detail-review-stars" aria-label="${rev.stars} Golden Stars">
+                        ${renderStarsHtml(rev.stars)}
+                    </span>
+                    <span class="detail-review-source">
+                        <span class="g-icon-multicolor" aria-hidden="true">G</span>
+                        <span>${rev.source}</span>
+                    </span>
+                </div>
+                <p class="detail-review-text">"${rev.text}"</p>
+            </div>
+        `).join("");
     }
 }
 
-function openImageLightboxBySrc(src, title, caption) {
-    collectGalleryImages();
-    const foundIdx = lightboxGallery.findIndex(item => item.attrSrc === src || item.src.endsWith(src));
-    if (foundIdx >= 0) {
-        currentLightboxIndex = foundIdx;
-    } else {
-        lightboxGallery.push({
-            src: src,
-            attrSrc: src,
-            title: title || "Parshant Graphics",
-            caption: caption || ""
-        });
-        currentLightboxIndex = lightboxGallery.length - 1;
-    }
-    renderLightboxSlide();
-    const modal = document.getElementById("imageLightboxModal");
-    if (modal) {
-        modal.classList.add("open");
-        modal.setAttribute("aria-hidden", "false");
+function openProjectDetail(index) {
+    renderProjectDetailView(index);
+    const pageView = document.getElementById("projectDetailModal");
+    if (pageView) {
+        pageView.classList.add("open");
+        pageView.setAttribute("aria-hidden", "false");
+        pageView.scrollTop = 0;
+        document.body.style.overflow = "hidden";
     }
 }
 
-function renderLightboxSlide() {
-    const item = lightboxGallery[currentLightboxIndex];
-    if (!item) return;
-    const lightboxImg = document.getElementById("lightboxImg");
-    const lightboxTitle = document.getElementById("lightboxTitle");
-    const lightboxCaption = document.getElementById("lightboxCaption");
-    const lightboxCounter = document.getElementById("lightboxCounter");
-    const zoomBtn = document.getElementById("lightboxZoomBtn");
-
-    if (lightboxImg) {
-        lightboxImg.classList.remove("zoomed");
-        lightboxImg.src = item.src;
-        lightboxImg.alt = item.title;
-    }
-    if (zoomBtn) {
-        zoomBtn.innerHTML = '<i class="fa-solid fa-magnifying-glass-plus"></i>';
-    }
-    if (lightboxTitle) lightboxTitle.textContent = item.title;
-    if (lightboxCaption) lightboxCaption.textContent = item.caption;
-    if (lightboxCounter) {
-        lightboxCounter.textContent = `${currentLightboxIndex + 1} / ${lightboxGallery.length} • ${item.title}`;
+function closeProjectDetail() {
+    const pageView = document.getElementById("projectDetailModal");
+    if (pageView) {
+        pageView.classList.remove("open");
+        pageView.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = "";
     }
 }
 
-function navigateLightbox(direction) {
-    if (lightboxGallery.length === 0) return;
-    currentLightboxIndex = (currentLightboxIndex + direction + lightboxGallery.length) % lightboxGallery.length;
-    renderLightboxSlide();
+function navigateProjectDetail(direction) {
+    const total = RECENT_PROJECTS_DATA.length;
+    const nextIdx = (currentProjectIndex + direction + total) % total;
+    renderProjectDetailView(nextIdx);
 }
 
-function toggleLightboxZoom() {
-    const lightboxImg = document.getElementById("lightboxImg");
-    const zoomBtn = document.getElementById("lightboxZoomBtn");
-    if (!lightboxImg) return;
-    const isZoomed = lightboxImg.classList.toggle("zoomed");
-    if (zoomBtn) {
-        zoomBtn.innerHTML = isZoomed
-            ? '<i class="fa-solid fa-magnifying-glass-minus"></i>'
-            : '<i class="fa-solid fa-magnifying-glass-plus"></i>';
+// --------------------------------------------------------------------------
+// DEDICATED FULL-PAGE VIEW 2: SHOP IMAGE PAGE (main.png Only + Back Button)
+// --------------------------------------------------------------------------
+function openShopImagePage() {
+    const shopPage = document.getElementById("shopImageViewPage");
+    const shopDedicatedImg = document.getElementById("shopDedicatedImg");
+    const heroMainImg = document.getElementById("heroMainImg");
+
+    if (shopDedicatedImg && heroMainImg && heroMainImg.getAttribute("src")) {
+        shopDedicatedImg.src = heroMainImg.getAttribute("src");
+    }
+
+    if (shopPage) {
+        shopPage.classList.add("open");
+        shopPage.setAttribute("aria-hidden", "false");
+        shopPage.scrollTop = 0;
+        document.body.style.overflow = "hidden";
     }
 }
 
-function closeImageLightbox() {
-    const modal = document.getElementById("imageLightboxModal");
-    const lightboxImg = document.getElementById("lightboxImg");
-    if (lightboxImg) lightboxImg.classList.remove("zoomed");
-    if (modal) {
-        modal.classList.remove("open");
-        modal.setAttribute("aria-hidden", "true");
+function closeShopImagePage() {
+    const shopPage = document.getElementById("shopImageViewPage");
+    if (shopPage) {
+        shopPage.classList.remove("open");
+        shopPage.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = "";
     }
 }
 
-// Attach click listeners to all images so clicking ANY image opens it on screen
-function initClickableImages() {
-    document.querySelectorAll("img").forEach(img => {
-        if (img.id === "lightboxImg") return;
-        img.addEventListener("click", (e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            openImageLightbox(img);
-        });
-    });
-
-    const lightboxModal = document.getElementById("imageLightboxModal");
-    const lightboxImg = document.getElementById("lightboxImg");
-
-    if (lightboxImg) {
-        lightboxImg.addEventListener("click", (e) => {
-            e.stopPropagation();
-            toggleLightboxZoom();
-        });
-    }
-
-    if (lightboxModal) {
-        lightboxModal.addEventListener("click", (e) => {
-            if (e.target === lightboxModal || e.target.id === "lightboxStage") {
-                closeImageLightbox();
-            }
-        });
-    }
+// Keyboard & Touch Interactions
+function initPageInteractions() {
+    const projPage = document.getElementById("projectDetailModal");
+    const shopPage = document.getElementById("shopImageViewPage");
+    const card = document.getElementById("projectDetailCard");
 
     document.addEventListener("keydown", (e) => {
-        if (!lightboxModal || !lightboxModal.classList.contains("open")) return;
-        if (e.key === "Escape") closeImageLightbox();
-        if (e.key === "ArrowRight") navigateLightbox(1);
-        if (e.key === "ArrowLeft") navigateLightbox(-1);
-    });
-}
-initClickableImages();
-
-// 9. Upgraded Quotation Form — WhatsApp & Email Dispatch
-const whatsappQuoteForm = document.getElementById("whatsappQuoteForm");
-const sendEmailQuoteBtn = document.getElementById("sendEmailQuoteBtn");
-
-function buildQuoteDetails() {
-    const name = (document.getElementById("custName").value || "").trim() || "Valued Client";
-    const phone = (document.getElementById("custPhone").value || "").trim() || "Not provided";
-    const shopName = (document.getElementById("custShopName").value || "").trim() || "Custom Signage";
-    const cityEl = document.getElementById("custCity");
-    const city = (cityEl && cityEl.value ? cityEl.value.trim() : "") || "Jind / Haryana";
-    const service = document.getElementById("custService").value;
-    const finishEl = document.getElementById("custFinish");
-    const finish = finishEl ? finishEl.value : "Standard 3D LED Finish";
-    const size = (document.getElementById("custSize").value || "").trim() || "Standard Size";
-    const mountingEl = document.getElementById("custMounting");
-    const mounting = mountingEl ? mountingEl.value : "Storefront Fascia";
-    const msg = (document.getElementById("custMsg").value || "").trim() || "Please share 3D design mockup and quotation.";
-
-    const formattedText =
-        `Hello *PARSHANT GRAPHICS*,\n` +
-        `I would like to request a quotation for a signage project:\n\n` +
-        `*Client Name:* ${name}\n` +
-        `*Contact Number:* ${phone}\n` +
-        `*City / Location:* ${city}\n` +
-        `*Signboard Name:* ${shopName}\n` +
-        `*Board Category:* ${service}\n` +
-        `*Preferred Finish:* ${finish}\n` +
-        `*Approx. Size:* ${size}\n` +
-        `*Mounting Location:* ${mounting}\n` +
-        `*Additional Details:* ${msg}\n\n` +
-        `Please share the 3D design options and quotation.`;
-
-    return { name, phone, city, shopName, service, finish, size, mounting, msg, formattedText };
-}
-
-if (whatsappQuoteForm) {
-    whatsappQuoteForm.addEventListener("submit", (e) => {
-        e.preventDefault();
-        const data = buildQuoteDetails();
-        const waUrl = `https://wa.me/${OWNER_WHATSAPP_NUMBER}?text=${encodeURIComponent(data.formattedText)}`;
-        window.open(waUrl, "_blank", "noopener,noreferrer");
-        showToast("Opening WhatsApp chat with +91 79883 00872...");
-    });
-}
-
-if (sendEmailQuoteBtn) {
-    sendEmailQuoteBtn.addEventListener("click", () => {
-        const nameInput = document.getElementById("custName");
-        if (nameInput && !nameInput.value.trim()) {
-            nameInput.focus();
-            showToast("Please enter your name first.", "fa-solid fa-circle-exclamation");
-            return;
-        }
-        const data = buildQuoteDetails();
-        const subject = `Signage Quotation Inquiry — ${data.shopName} (${data.city})`;
-        const plainBody = data.formattedText.replace(/\*/g, "");
-        window.location.href = `mailto:${OWNER_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(plainBody)}`;
-        showToast(`Opening email client for ${OWNER_EMAIL}...`, "fa-solid fa-envelope");
-    });
-}
-
-// 10. Interactive WhatsApp Live Chat Widget
-const waToggleBtn = document.getElementById("waToggleBtn");
-const waChatBox = document.getElementById("waChatBox");
-const waCloseBtn = document.getElementById("waCloseBtn");
-const waQuickInput = document.getElementById("waQuickInput");
-const waSendBtn = document.getElementById("waSendBtn");
-
-if (waToggleBtn && waChatBox) {
-    waToggleBtn.addEventListener("click", () => {
-        waChatBox.classList.toggle("open");
-    });
-}
-
-if (waCloseBtn && waChatBox) {
-    waCloseBtn.addEventListener("click", () => {
-        waChatBox.classList.remove("open");
-    });
-}
-
-document.querySelectorAll(".wa-chip").forEach(chip => {
-    chip.addEventListener("click", () => {
-        const text = chip.getAttribute("data-msg") || chip.textContent;
-        if (waQuickInput) waQuickInput.value = text;
-        launchQuickWhatsApp(text);
-    });
-});
-
-function launchQuickWhatsApp(customText) {
-    const message = (customText || (waQuickInput && waQuickInput.value) || "").trim() ||
-        "Hello Parshant Graphics! I would like to inquire about 3D Signage & Branding services.";
-    const waUrl = `https://wa.me/${OWNER_WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
-    window.open(waUrl, "_blank", "noopener,noreferrer");
-    showToast("Launching WhatsApp chat with +91 79883 00872...");
-}
-
-if (waSendBtn) {
-    waSendBtn.addEventListener("click", () => launchQuickWhatsApp());
-}
-
-if (waQuickInput) {
-    waQuickInput.addEventListener("keydown", (e) => {
-        if (e.key === "Enter") {
-            e.preventDefault();
-            launchQuickWhatsApp();
+        if (projPage && projPage.classList.contains("open")) {
+            if (e.key === "Escape") closeProjectDetail();
+            if (e.key === "ArrowRight") navigateProjectDetail(1);
+            if (e.key === "ArrowLeft") navigateProjectDetail(-1);
+        } else if (shopPage && shopPage.classList.contains("open")) {
+            if (e.key === "Escape") closeShopImagePage();
         }
     });
-}
 
+    // Touch swipe left/right on mobile inside Project Detail Page
+    let touchStartX = 0;
+    let touchEndX = 0;
+    if (card) {
+        card.addEventListener("touchstart", (e) => {
+            if (e.changedTouches && e.changedTouches.length > 0) {
+                touchStartX = e.changedTouches[0].screenX;
+            }
+        }, { passive: true });
+
+        card.addEventListener("touchend", (e) => {
+            if (e.changedTouches && e.changedTouches.length > 0) {
+                touchEndX = e.changedTouches[0].screenX;
+                const diffX = touchStartX - touchEndX;
+                if (Math.abs(diffX) > 55) {
+                    if (diffX > 0) {
+                        navigateProjectDetail(1);
+                    } else {
+                        navigateProjectDetail(-1);
+                    }
+                }
+            }
+        }, { passive: true });
+    }
+
+    // Keyboard accessibility for clickable cards
+    document.querySelectorAll(".portfolio-photo-wrap.project-clickable").forEach((wrap, idx) => {
+        wrap.addEventListener("keydown", (e) => {
+            if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                openProjectDetail(idx);
+            }
+        });
+    });
+
+    document.querySelectorAll(".shop-img-clickable").forEach(wrap => {
+        wrap.addEventListener("keydown", (e) => {
+            if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                openShopImagePage();
+            }
+        });
+    });
+}
+initPageInteractions();
+
+// Export global handlers
 window.handleImageFallback = handleImageFallback;
-window.resetSignStudio = resetSignStudio;
-window.sendCustomBoardToQuote = sendCustomBoardToQuote;
 window.selectService = selectService;
-window.setQuoteSize = setQuoteSize;
-window.openProjectModal = openProjectModal;
-window.closeProjectModal = closeProjectModal;
-window.openImageLightbox = openImageLightbox;
-window.openImageLightboxBySrc = openImageLightboxBySrc;
-window.navigateLightbox = navigateLightbox;
-window.toggleLightboxZoom = toggleLightboxZoom;
-window.closeImageLightbox = closeImageLightbox;
+window.openDirectWhatsApp = openDirectWhatsApp;
+window.openProjectDetail = openProjectDetail;
+window.closeProjectDetail = closeProjectDetail;
+window.navigateProjectDetail = navigateProjectDetail;
+window.openShopImagePage = openShopImagePage;
+window.closeShopImagePage = closeShopImagePage;
 window.copyToClipboard = copyToClipboard;
-
-updateBoardSpecs();
